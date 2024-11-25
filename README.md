@@ -1,6 +1,6 @@
 # YouTube Vocab Extractor
 
-This is a simple Python script that summarizes the contents & extracts the most important vocabulary from a YouTube video.
+This is a simple Python script that transcribes and summarizes the contents of a YouTube video and then extracts the most important vocabulary from it.
 
 ## Usage
 
