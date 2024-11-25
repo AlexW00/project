@@ -72,10 +72,10 @@ def main():
             if not api_key:
                 raise ValueError("OpenAI API key is required")
 
-        # Get podcast URL
+        # Get YouTube URL
         url = input("Please enter the YouTube URL: ").strip()
         if not url:
-            raise ValueError("Podcast URL is required")
+            raise ValueError("YouTube URL is required")
 
         default_out_file = "out.json"
         out_file = input(
