@@ -62,7 +62,14 @@ class AIProcessor:
                     },
                 ],
             )
-            return response.choices[0].message["content"].split("\n")
+            text = response.choices[0].message["content"].split("\n")
+            # remove csv md formatting
+            if text[0] == "```csv":
+                text = text[1:]
+            if text[-1] == "```":
+                text = text[:-1]
+
+            return text
 
         except Exception as e:
             raise Exception(f"Error extracting vocabulary: {str(e)}")

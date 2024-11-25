@@ -77,7 +77,7 @@ def main():
         if not url:
             raise ValueError("Podcast URL is required")
 
-        default_out_file = "out.md"
+        default_out_file = "out.json"
         out_file = input(
             f"Please enter the output file name (default: {default_out_file}): "
         ).strip()
