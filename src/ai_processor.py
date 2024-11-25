@@ -8,7 +8,8 @@ class AIProcessor:
     # get model from ENV var or default to gpt-4o
     model = os.getenv("OPENAI_MODEL", "gpt-4o")
     summary_language = os.getenv("SUMMARY_LANGUAGE", "en")
-    num_vocabulary_words = os.getenv("NUM_VOCABULARY_WORDS", 30)
+    num_vocabulary_words = os.getenv("NUM_VOCABULARY", 30)
+    vocabulary_difficulty = os.getenv("VOCABULARY_DIFFICULTY", "medium")
     vocab_translation_language = os.getenv("VOCAB_TRANSLATION_LANGUAGE", "en")
 
     def __init__(self, api_key: str):
@@ -58,7 +59,7 @@ class AIProcessor:
                     },
                     {
                         "role": "user",
-                        "content": f"Please extract a list of {self.num_vocabulary_words} key vocabulary words from this text, focusing on important terms and concepts. Reply as a CSV with the following format: `word, example, translation`. The example should be an occurence in the podcast. The translation should be in the following language: '{self.vocab_translation_language}'. ONLY REPLY WITH THE CSV!\n\n{text}",
+                        "content": f"Please extract a list of {self.num_vocabulary_words} key vocabulary words (difficulty = {self.vocabulary_difficulty})from this text, focusing on important terms and concepts. Reply as a CSV with the following format: `word, example, translation`. The example should be an occurence in the podcast. The translation should be in the following language: '{self.vocab_translation_language}'. ONLY REPLY WITH THE CSV!\n\n{text}",
                     },
                 ],
             )

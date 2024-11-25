@@ -15,7 +15,8 @@ The following environment variables can be set to customize the script:
 - `OPENAI_API_KEY`: Your OpenAI API key (required)
 - `OPENAI_MODEL`: The OpenAI model to use (default: `gpt-4o`)
 - `SUMMARY_LANGUAGE`: The language of the video summary (default: `en`)
-- `NUM_VOCABULARY_WORDS`: The number of vocabulary words to extract (default: `30`)
+- `NUM_VOCABULARY`: The number of vocabulary words to extract (default: `30`)
+- `VOCABULARY_DIFFICULTY`: The difficulty level of the vocabulary words to extract (default: `medium`)
 - `VOCAB_TRANSLATION_LANGUAGE`: The language to translate the vocabulary words to (default: `en`)
 
 ## Example
