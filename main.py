@@ -73,20 +73,26 @@ def main():
                 raise ValueError("OpenAI API key is required")
 
         # Get podcast URL
-        # url = input("Please enter the Google Podcast URL: ").strip()
-        url = "https://www.youtube.com/watch?v=qd6JZvry3T0"
+        url = input("Please enter the YouTube URL: ").strip()
         if not url:
             raise ValueError("Podcast URL is required")
+
+        default_out_file = "out.md"
+        out_file = input(
+            f"Please enter the output file name (default: {default_out_file}): "
+        ).strip()
+        if not out_file:
+            out_file = default_out_file
 
         # Process podcast
         processor = PodcastProcessor(api_key)
         results = processor.process_podcast(url)
 
         # Save results
-        with open("podcast_results.json", "w", encoding="utf-8") as f:
+        with open(out_file, "w", encoding="utf-8") as f:
             json.dump(results, f, indent=2, ensure_ascii=False)
 
-        print("\nProcessing complete! Results saved to podcast_results.json")
+        print("\nProcessing complete! Results saved to " + out_file)
         print("\nSummary:")
         print(results["summary"])
         print("\nKey Vocabulary:")
